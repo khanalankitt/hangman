@@ -51,7 +51,7 @@
   display: flex;
 }
 .container .right ul li {
-  font-size: 30px;
+  font-size: 25px;
   margin-left: 10px;
 }
 .container .right .keyboard {
@@ -105,7 +105,7 @@
     margin-top: 20px;
   }
   .container .right ul li {
-    font-size: 25px;
+    font-size: 19px;
   }
   .container .right .keyboard {
     margin-bottom: 20px;
@@ -115,4 +115,4 @@
     width: 32px;
     font-size: 15px;
   }
-}/*# sourceMappingURL=style.css.map */
+}

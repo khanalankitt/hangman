@@ -414,7 +414,7 @@ let incorrect = document.getElementById("incorrectGuess");
 let correctGuesses = new Array(wordArray.length).fill(false);
 
 ul.innerHTML = wordArray.map((index) => {
-  return `<li key="${index}" id="li-${index}">__</li>`;
+  return `<li key="${index}" id="li-${index}">_</li>`;
 }).join('');
 
 document.getElementById("hint").innerHTML = `${wordHint}`;
@@ -432,7 +432,7 @@ function checkLetter(letter) {
     }
 
     ul.innerHTML = wordArray.map((char, index) => {
-      return `<li key="${index}" id="li-${index}">${correctGuesses[index] ? char.toUpperCase() : "__"}</li>`;
+      return `<li key="${index}" id="li-${index}">${correctGuesses[index] ? char.toUpperCase() : "_"}</li>`;
     }).join('');
     document.getElementById(`${letter}`).style.backgroundColor = "green";
   } else {
