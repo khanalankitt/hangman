@@ -4,8 +4,127 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="./faviconn.png">
-    <link rel="stylesheet" href="./style.css">
     <title>Hangman Game</title>
+    <style>
+        * {
+          padding: 0px;
+          margin: 0px;
+          box-sizing: border-box;
+          font-family: sans-serif;
+        }
+        
+        .container {
+          color: white;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          height: 600px;
+          width: 1000px;
+          padding: 20px;
+          background: slateblue;
+          border-radius: 20px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+        .container .left {
+          height: 100%;
+          width: 40%;
+          display: flex;
+          justify-content: space-around;
+          flex-direction: column;
+        }
+        .container .left img {
+          border-radius: 20px;
+        }
+        .container .left h1 {
+          text-align: center;
+        }
+        .container .right {
+          height: 90%;
+          width: 55%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          flex-wrap: wrap;
+          gap: 50px;
+          background: white;
+          color: slateblue;
+          border-radius: 20px;
+        }
+        .container .right ul {
+          list-style-type: none;
+          display: flex;
+        }
+        .container .right ul li {
+          font-size: 30px;
+          margin-left: 10px;
+        }
+        .container .right .keyboard {
+          width: 100%;
+          text-align: center;
+        }
+        .container .right .keyboard button {
+          margin: 5px 0px;
+          height: 45px;
+          width: 45px;
+          color: white;
+          background: slateblue;
+          font-size: 20px;
+          border-radius: 10px;
+          font-weight: bold;
+          border: none;
+          outline: none;
+          cursor: pointer;
+        }
+        
+        @media (max-width: 1025px) {
+          .container {
+            padding: 20px;
+            height: 700px;
+            width: 370px;
+            flex-direction: column;
+          }
+          .container .left {
+            width: 90%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          .container .left h1 {
+            margin-top: 15px;
+          }
+          .container .left img {
+            height: 250px;
+            width: 250px;
+          }
+          .container .right {
+            height: 500px;
+            width: 100%;
+            gap: 30px;
+          }
+          .container .right p {
+            padding: 0px 10px;
+            text-align: center;
+          }
+          .container .right ul {
+            margin-top: 20px;
+          }
+          .container .right ul li {
+            font-size: 25px;
+          }
+          .container .right .keyboard {
+            margin-bottom: 20px;
+          }
+          .container .right .keyboard button {
+            height: 32px;
+            width: 32px;
+            font-size: 15px;
+          }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -24,32 +143,32 @@
             <p><b>Hint :</b> <span id="hint">-</span></p>
             <h3>Incorrect Guesses : <span id="incorrectGuess"> </span></h3>
             <div class="keyboard">
-                <button onClick="checkLetter('q')">Q</button>
-                <button onClick="checkLetter('w')">W</button>
-                <button onClick="checkLetter('e')">E</button>
-                <button onClick="checkLetter('r')">R</button>
-                <button onClick="checkLetter('t')">T</button>
-                <button onClick="checkLetter('y')">Y</button>
-                <button onClick="checkLetter('u')">U</button>
-                <button onClick="checkLetter('i')">I</button>
-                <button onClick="checkLetter('o')">O</button>
-                <button onClick="checkLetter('p')">P</button>
-                <button onClick="checkLetter('a')">A</button>
-                <button onClick="checkLetter('s')">S</button>
-                <button onClick="checkLetter('d')">D</button>
-                <button onClick="checkLetter('f')">F</button>
-                <button onClick="checkLetter('g')">G</button>
-                <button onClick="checkLetter('h')">H</button>
-                <button onClick="checkLetter('j')">J</button>
-                <button onClick="checkLetter('k')">K</button>
-                <button onClick="checkLetter('l')">L</button>
-                <button onClick="checkLetter('z')">Z</button>
-                <button onClick="checkLetter('x')">X</button>
-                <button onClick="checkLetter('c')">C</button>
-                <button onClick="checkLetter('v')">V</button>
-                <button onClick="checkLetter('b')">B</button>
-                <button onClick="checkLetter('n')">N</button>
-                <button onClick="checkLetter('m')">M</button>
+                <button id="q" onClick="checkLetter('q')">Q</button>
+                <button id="w" onClick="checkLetter('w')">W</button>
+                <button id="e" onClick="checkLetter('e')">E</button>
+                <button id="r" onClick="checkLetter('r')">R</button>
+                <button id="t" onClick="checkLetter('t')">T</button>
+                <button id="y" onClick="checkLetter('y')">Y</button>
+                <button id="u" onClick="checkLetter('u')">U</button>
+                <button id="i" onClick="checkLetter('i')">I</button>
+                <button id="o" onClick="checkLetter('o')">O</button>
+                <button id="p" onClick="checkLetter('p')">P</button>
+                <button id="a" onClick="checkLetter('a')">A</button>
+                <button id="s" onClick="checkLetter('s')">S</button>
+                <button id="d" onClick="checkLetter('d')">D</button>
+                <button id="f" onClick="checkLetter('f')">F</button>
+                <button id="g" onClick="checkLetter('g')">G</button>
+                <button id="h" onClick="checkLetter('h')">H</button>
+                <button id="j" onClick="checkLetter('j')">J</button>
+                <button id="k" onClick="checkLetter('k')">K</button>
+                <button id="l" onClick="checkLetter('l')">L</button>
+                <button id="z" onClick="checkLetter('z')">Z</button>
+                <button id="x" onClick="checkLetter('x')">X</button>
+                <button id="c" onClick="checkLetter('c')">C</button>
+                <button id="v" onClick="checkLetter('v')">V</button>
+                <button id="b" onClick="checkLetter('b')">B</button>
+                <button id="n" onClick="checkLetter('n')">N</button>
+                <button id="m" onClick="checkLetter('m')">M</button>
             </div>
         </div>
     </div>
