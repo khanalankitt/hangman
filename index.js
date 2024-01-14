@@ -451,7 +451,30 @@ function checkLetter(letter) {
     if(userInputString === wordName){
       setTimeout(() => {
         alert("Congratulations! You guessed the word:)")
-        window.location.reload();
+        resetGame();
       }, 300);
     }
+}
+
+function resetGame() {
+  correctGuesses = new Array(wordArray.length).fill(false);
+  userInputArray = [];
+  INCORRECT_GUESS = 0;
+
+  index = Math.floor(Math.random() * words.length);
+  wordName = words[index].name;
+  wordHint = words[index].hint;
+  wordArray = wordName.split('');
+
+  ul.innerHTML = wordArray.map((index) => {
+    return `<li key="${index}" id="li-${index}">_</li>`;
+  }).join('');
+
+  document.getElementById("hint").innerHTML = `${wordHint}`;
+  incorrect.innerHTML = "0";
+  document.getElementById("img").src = "./1.png";
+  let buttons = document.getElementsByClassName("btn");
+  for (let i = 0; i < buttons.length; i++) {
+    buttons[i].style.backgroundColor = "slateblue";
+  }
 }
