@@ -443,7 +443,7 @@ function checkLetter(letter) {
     if (INCORRECT_GUESS === 6) {
       setTimeout(() => {
         alert('Game Over! You ran out of guesses. The correct word was: ' + wordName.toUpperCase());
-        window.location.reload();
+        resetGame();
       }, 300)
     }
   }
