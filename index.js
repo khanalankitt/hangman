@@ -419,6 +419,9 @@ ul.innerHTML = wordArray.map((index) => {
 
 document.getElementById("hint").innerHTML = `${wordHint}`;
 let userInputArray = [];
+addEventListener('keypress',(e)=>{
+  checkLetter(e.key);
+})
 function checkLetter(letter) {
   if (wordName.includes(letter)){
     for (let i = 0; i < wordName.length; i++) {
